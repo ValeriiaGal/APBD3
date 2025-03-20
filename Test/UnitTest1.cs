@@ -16,7 +16,6 @@ public class DeviceManagerTest
     [Fact]
     public void addDevice()
     {
-        // Use the full path for debugging
         var absolutePath = @"APBD2-2\APBD2-2\input.txt";
         if (!File.Exists(absolutePath))
         {
