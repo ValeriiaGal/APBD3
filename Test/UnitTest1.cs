@@ -16,14 +16,8 @@ public class DeviceManagerTest
     [Fact]
     public void addDevice()
     {
-        var currentDirectory = Directory.GetCurrentDirectory();
-        Console.WriteLine($"Current directory: {currentDirectory}");
-
-        // Going up 3 levels to reach the root folder (APBD2-2)
-        var relativePath = Path.Combine(currentDirectory, @"..\..\..\APBD2-2\APBD2-2\input.txt");
-        var absolutePath = Path.GetFullPath(relativePath);
-        Console.WriteLine($"Resolved absolute path: {absolutePath}");
-
+        // Use the full path for debugging
+        var absolutePath = @"APBD2-2\APBD2-2\input.txt";
         if (!File.Exists(absolutePath))
         {
             throw new FileNotFoundException($"The file was not found: {absolutePath}");
@@ -33,28 +27,16 @@ public class DeviceManagerTest
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
 
         manager.AddDevice(device);
+
         manager.ShowDevices();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     
     [Fact]
     public void removeDevice()
     {
 
-        var manager = new DeviceManager("APBD2-2/input.txt");
+        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         
@@ -66,7 +48,7 @@ public class DeviceManagerTest
     [Fact]
     public void turnOnDevice()
     {
-        var manager = new DeviceManager("APBD2-2/input.txt");
+        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         
@@ -79,7 +61,7 @@ public class DeviceManagerTest
     [Fact]
     public void editedDevice()
     {
-        var manager = new DeviceManager("APBD2-2/input.txt");
+        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         
@@ -92,7 +74,7 @@ public class DeviceManagerTest
     [Fact]
     public void turnOffDevice()
     {
-        var manager = new DeviceManager("APBD2-2/input.txt");
+        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         manager.TurnOnDevice(1);  
