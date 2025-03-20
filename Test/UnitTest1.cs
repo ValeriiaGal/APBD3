@@ -1,4 +1,3 @@
-using Xunit.Abstractions;
 
 namespace Tests;
 using APBD2;
@@ -6,17 +5,13 @@ using Xunit;
 
 public class DeviceManagerTest
 {
-    private readonly ITestOutputHelper _testOutputHelper;
 
-    public DeviceManagerTest(ITestOutputHelper testOutputHelper)
-    {
-        _testOutputHelper = testOutputHelper;
-    }
+    
 
     [Fact]
     public void addDevice()
     {
-        var absolutePath = @"APBD2-2\APBD2-2\input.txt";
+        var absolutePath = "info/input.txt";
         if (!File.Exists(absolutePath))
         {
             throw new FileNotFoundException($"The file was not found: {absolutePath}");
@@ -35,7 +30,7 @@ public class DeviceManagerTest
     public void removeDevice()
     {
 
-        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
+        var manager = new DeviceManager("info/input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         
@@ -47,7 +42,7 @@ public class DeviceManagerTest
     [Fact]
     public void turnOnDevice()
     {
-        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
+        var manager = new DeviceManager("info/input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         
@@ -60,7 +55,7 @@ public class DeviceManagerTest
     [Fact]
     public void editedDevice()
     {
-        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
+        var manager = new DeviceManager("info/input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         
@@ -73,7 +68,7 @@ public class DeviceManagerTest
     [Fact]
     public void turnOffDevice()
     {
-        var manager = new DeviceManager(@"APBD2-2\APBD2-2\input.txt");
+        var manager = new DeviceManager("info/input.txt");
         var device = new Smartwatch { Id = 1, Name = "Test Smartwatch", Battery = 50 };
         manager.AddDevice(device);
         manager.TurnOnDevice(1);  

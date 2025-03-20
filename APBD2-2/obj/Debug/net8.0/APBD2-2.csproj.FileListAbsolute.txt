@@ -27,4 +27,5 @@ C:\Users\Lera\Desktop\APBD2-2\APBD2-2\obj\Debug\net8.0\refint\APBD2-2.dll
 C:\Users\Lera\Desktop\APBD2-2\APBD2-2\obj\Debug\net8.0\APBD2-2.pdb
 C:\Users\Lera\Desktop\APBD2-2\APBD2-2\obj\Debug\net8.0\APBD2-2.genruntimeconfig.cache
 C:\Users\Lera\Desktop\APBD2-2\APBD2-2\obj\Debug\net8.0\ref\APBD2-2.dll
-C:\Users\Lera\Desktop\APBD2-2\APBD2-2\bin\Debug\net8.0\input.txt
+C:\Users\Lera\Desktop\APBD2-2\APBD2-2\bin\Debug\net8.0\info\input.txt
+C:\Users\Lera\Desktop\APBD2-2\APBD2-2\obj\Debug\net8.0\APBD2-2.sourcelink.json
