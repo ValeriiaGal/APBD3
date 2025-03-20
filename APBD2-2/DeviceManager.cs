@@ -20,7 +20,13 @@ namespace APBD2
                 try
                 {
                     Device device = null;
-                    switch (parts[0])
+                    string[] identifierParts = parts[0].Split('-');
+                    if (identifierParts.Length < 2) continue;
+
+                    string deviceType = identifierParts[0];
+                    string deviceId = identifierParts[1];
+
+                    switch (deviceType)
                     {
                         case "SW":
                             if (parts.Length < 4 || !int.TryParse(parts[3].TrimEnd('%'), out int battery))
@@ -75,22 +81,38 @@ namespace APBD2
             var device = devices.Find(d => d.Id == id);
             if (device != null)
             {
-                var propertyInfo = device.GetType().GetProperty(propertyName);
-                if (propertyInfo != null && propertyInfo.CanWrite)
+                if (propertyName == "IsTurnedOn")
                 {
-                    try
+                    bool newState = Convert.ToBoolean(newValue);
+                    if (newState)
                     {
-                        propertyInfo.SetValue(device, Convert.ChangeType(newValue, propertyInfo.PropertyType));
-                        Console.WriteLine($"Device {device.Name} property {propertyName} updated to {newValue}.");
+                        device.TurnOn();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Console.WriteLine($"Error updating property: {ex.Message}");
+                        device.TurnOff();
                     }
+                    Console.WriteLine($"Device {device.Name} turned {(newState ? "on" : "off")}");
                 }
                 else
                 {
-                    Console.WriteLine($"Property {propertyName} does not exist or cannot be written.");
+                    var propertyInfo = device.GetType().GetProperty(propertyName);
+                    if (propertyInfo != null && propertyInfo.CanWrite)
+                    {
+                        try
+                        {
+                            propertyInfo.SetValue(device, Convert.ChangeType(newValue, propertyInfo.PropertyType));
+                            Console.WriteLine($"Device {device.Name} property {propertyName} updated to {newValue}.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error updating property: {ex.Message}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Property {propertyName} does not exist or cannot be written.");
+                    }
                 }
             }
             else
@@ -98,6 +120,7 @@ namespace APBD2
                 Console.WriteLine($"Device with Id {id} not found.");
             }
         }
+
 
         public void TurnOnDevice(int id)
         {

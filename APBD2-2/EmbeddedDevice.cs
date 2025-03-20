@@ -12,7 +12,7 @@ class EmbeddedDevice : Device
         set
         {
             if (!Regex.IsMatch(value, "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"))
-                throw new ArgumentException("Invalid IP format.");
+                throw new InvalidArgumentException("Invalid IP format.");
             ipAddress = value;
         }
     }
@@ -20,7 +20,7 @@ class EmbeddedDevice : Device
     public void Connect()
     {
         if (!NetworkName.Contains("MD Ltd."))
-            throw new Exception("Invalid network name.");
+            throw new ConnectionException("Invalid network name.");
     }
 
     public override void TurnOn()

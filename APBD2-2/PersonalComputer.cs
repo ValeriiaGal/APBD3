@@ -6,7 +6,7 @@ class PersonalComputer : Device
     public override void TurnOn()
     {
         if (string.IsNullOrEmpty(OperatingSystem))
-            throw new Exception("No OS installed.");
+            throw new EmptySystemException("No OS installed.");
         base.TurnOn();
     }
     public override string ToString()

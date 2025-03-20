@@ -1,23 +1,25 @@
-﻿namespace APBD2;
-
-public abstract class Device
+﻿namespace APBD2
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public bool IsTurnedOn { get; private set; }
-
-    public virtual void TurnOn()
+    public abstract class Device
     {
-        IsTurnedOn = true;
-    }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsTurnedOn { get; private set; }
 
-    public void TurnOff()
-    {
-        IsTurnedOn = false;
-    }
+        public virtual void TurnOn()
+        {
+            IsTurnedOn = true;
+        }
 
-    public override string ToString()
-    {
-        return $"{GetType().Name} [Id={Id}, Name={Name}, IsTurnedOn={IsTurnedOn}]";
+        public void TurnOff()
+        {
+            IsTurnedOn = false;
+        }
+        
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} [Id={Id}, Name={Name}, IsTurnedOn={IsTurnedOn}]";
+        }
     }
 }

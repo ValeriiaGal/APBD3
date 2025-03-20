@@ -9,7 +9,7 @@ public class Smartwatch : Device, IPowerNotifier
         set
         {
             if (value < 0 || value > 100)
-                throw new ArgumentOutOfRangeException("Battery must be between 0 and 100");
+                throw new InvalidArgumentException("Battery percentage must be between 0 and 100.");
             _battery = value;
             if (_battery < 20)
                 BatteryLow();
@@ -21,7 +21,7 @@ public class Smartwatch : Device, IPowerNotifier
     public override void TurnOn()
     {
         if (_battery < 11)
-            throw new Exception(" Battery is too low to turn on.");
+            throw new EmptyBatteryException(" Battery is too low to turn on.");
         base.TurnOn();
         _battery -= 10;
     }
