@@ -78,6 +78,7 @@ public class DeviceManagerTest
         manager.AddDevice(device);
         manager.TurnOnDevice(1);  
         
+        
         manager.TurnOffDevice(1);
         
         var deviceAfterTurnOff = manager.GetDeviceById(1);
