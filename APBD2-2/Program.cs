@@ -7,7 +7,7 @@ class Program
     {
         try
         {
-            IDeviceFactory factory = new DeviceFactory();
+            IDeviceMaker factory = new DeviceMaker();
             IDeviceLoader loader = new FileDeviceLoader("info/input.txt", factory);
             IDeviceSaver saver = new FileDeviceSaver("info/input.txt");
 
@@ -46,7 +46,8 @@ class Program
             manager.TurnOnDevice(5); 
 
             Console.WriteLine("\nSaving devices");
-            manager.SaveToFile(saver); 
+            saver.SaveDevices(new List<object>(manager.GetAllDevices()));
+ 
 
             Console.WriteLine("\nFinal list of devices:");
             manager.ShowDevices();

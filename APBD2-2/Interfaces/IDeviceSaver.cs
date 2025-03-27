@@ -1,7 +1,7 @@
 ﻿namespace APBD2;
 
 /// <summary>
-/// Saves devices to a target.
+/// Saves devices to file
 /// </summary>
 public interface IDeviceSaver
 {

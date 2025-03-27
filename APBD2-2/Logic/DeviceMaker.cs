@@ -1,6 +1,9 @@
 ﻿namespace APBD2;
 
-public class DeviceFactory : IDeviceFactory
+/// <summary>
+/// Creates a device instances from file data
+/// </summary>
+public class DeviceMaker : IDeviceMaker
 {
     public object CreateDevice(string line)
     {

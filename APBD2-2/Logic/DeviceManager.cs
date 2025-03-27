@@ -2,6 +2,9 @@
 
 namespace APBD2
 {
+    /// <summary>
+    /// Manages devices and provides operations to modify them
+    /// </summary>
     public class DeviceManager
     {
         private readonly List<Device> _devices;
@@ -16,62 +19,186 @@ namespace APBD2
                 if (obj is Device d)
                     _devices.Add(d);
             }
+
             for (int i = 0; i < _devices.Count; i++)
                 _devices[i].Id = i + 1;
         }
-
+        /// <summary>
+        /// Adds a device to the manager
+        /// </summary>
         public void AddDevice(Device device)
         {
             if (_devices.Count >= MaxDevices)
-                throw new Exception("Storage limit reached.");
+            {
+                Console.WriteLine("Storage limit reached.");
+                return;
+            }
 
-            device.Id = _devices.Count + 1;
             _devices.Add(device);
         }
-        
+        /// <summary>
+        /// Retrieves a device by its ID.
+        /// </summary>
+
         public Device GetDeviceById(int id)
         {
-            var device = _devices.FirstOrDefault(d => d.Id == id);
+            var device = _devices.Find(d => d.Id == id);
             if (device == null)
-                throw new Exception($"Device with Id {id} not found.");
+            {
+                Console.WriteLine($"Device with Id {id} not found.");
+                throw new Exception("Device not found");
+            }
+
             return device;
         }
-
-
-        public void RemoveDevice(int id) => _devices.RemoveAll(d => d.Id == id);
-
-        public void EditDeviceData(int id, string propertyName, object newValue)
+        /// <summary>
+        /// Removes a device with the ID.
+        /// </summary>
+        public void RemoveDevice(int id)
         {
-            var device = _devices.FirstOrDefault(d => d.Id == id);
-            if (device == null) return;
-
-            if (propertyName == nameof(Device.IsTurnedOn))
+            var deviceToRemove = _devices.Find(d => d.Id == id);
+            if (deviceToRemove != null)
             {
-                if (Convert.ToBoolean(newValue)) device.TurnOn();
-                else device.TurnOff();
+                _devices.Remove(deviceToRemove);
             }
             else
             {
-                var prop = device.GetType().GetProperty(propertyName);
-                prop?.SetValue(device, Convert.ChangeType(newValue, prop.PropertyType));
+                Console.WriteLine($"Device with Id {id} not found.");
             }
         }
-
-        public void TurnOnDevice(int id) => _devices.FirstOrDefault(d => d.Id == id)?.TurnOn();
-
-        public void TurnOffDevice(int id) => _devices.FirstOrDefault(d => d.Id == id)?.TurnOff();
+        /// <summary>
+        /// Edits a property of some device.
+        /// </summary>
+         public void EditDeviceData(int id, string propertyName, object newValue)
+    {
+        var device = _devices.Find(d => d.Id == id);
+        if (device != null)
+        {
+            switch (propertyName)
+            {
+                case "Name":
+                    device.Name = newValue.ToString();
+                    Console.WriteLine($"Device {device.Id} name updated to {device.Name}.");
+                    break;
+                case "Battery":
+                    if (device is Smartwatch sw && int.TryParse(newValue.ToString(), out int battery))
+                    {
+                        sw.Battery = battery;
+                        Console.WriteLine($"Smartwatch {sw.Id} battery updated to {sw.Battery}%.");
+                    }
+                    break;
+                case "OperatingSystem":
+                    if (device is PersonalComputer pc)
+                    {
+                        pc.OperatingSystem = newValue.ToString();
+                        Console.WriteLine($"PC {pc.Id} OS updated to {pc.OperatingSystem}.");
+                    }
+                    break;
+                case "IpAddress":
+                    if (device is EmbeddedDevice ed)
+                    {
+                        ed.IpAddress = newValue.ToString();
+                        Console.WriteLine($"Embedded device {ed.Id} IP updated to {ed.IpAddress}.");
+                    }
+                    break;
+                case "NetworkName":
+                    if (device is EmbeddedDevice ed2)
+                    {
+                        ed2.NetworkName = newValue.ToString();
+                        Console.WriteLine($"Embedded device {ed2.Id} network updated to {ed2.NetworkName}.");
+                    }
+                    break;
+                case "IsTurnedOn":
+                    bool newState = Convert.ToBoolean(newValue);
+                    if (newState)
+                    {
+                        device.TurnOn();
+                    }
+                    else
+                    {
+                        device.TurnOff();
+                    }
+                    Console.WriteLine($"Device {device.Name} turned {(newState ? "on" : "off")}.");
+                    break;
+                default:
+                    Console.WriteLine($"Unknown property: {propertyName}");
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Device with Id {id} not found.");
+        }
+    }
+        
+        /// <summary>
+        /// Displays all devices to the console.
+        /// </summary>
 
         public void ShowDevices()
         {
-            foreach (var device in _devices)
-                Console.WriteLine(device);
+            if (_devices.Count == 0)
+            {
+                Console.WriteLine("No devices to display.");
+            }
+            else
+            {
+                foreach (var device in _devices)
+                {
+                    Console.WriteLine(device);
+                }
+            }
+        }
+        /// <summary>
+        /// Returns a copy of all devices.
+        /// </summary>
+        
+        public List<Device> GetAllDevices()
+        {
+            return new List<Device>(_devices);
+        }
+        
+        /// <summary>
+        /// Turns on a device with the provided ID.
+        /// </summary>
+        public void TurnOnDevice(int id)
+        {
+            var device = _devices.Find(d => d.Id == id);
+            if (device != null)
+            {
+                try
+                {
+                    device.TurnOn();
+                    Console.WriteLine($"Device {device.Name} is now turned on.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error turning on device: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Device with Id {id} not found.");
+            }
         }
 
-        public void SaveToFile(IDeviceSaver saver)
+        /// <summary>
+        /// Turns off a device with the provided ID.
+        /// </summary>
+        public void TurnOffDevice(int id)
         {
-            var objList = new List<object>(_devices);
-            saver.SaveDevices(objList);
+            var device = _devices.Find(d => d.Id == id);
+            if (device != null)
+            {
+                device.TurnOff();
+                Console.WriteLine($"Device {device.Name} is now turned off.");
+            }
+            else
+            {
+                Console.WriteLine($"Device with Id {id} not found.");
+            }
         }
     }
 }
+
  

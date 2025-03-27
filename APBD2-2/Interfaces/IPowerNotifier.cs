@@ -1,7 +1,7 @@
 ﻿namespace APBD2;
 
 /// <summary>
-/// Provides battery low notification behavior.
+/// Shows a low battery warning
 /// </summary>
 public interface IPowerNotifier
 {

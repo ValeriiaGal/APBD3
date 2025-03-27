@@ -1,5 +1,7 @@
 ﻿namespace APBD2;
-
+/// <summary>
+/// Saves devices to a file.
+/// </summary>
 public class FileDeviceSaver : IDeviceSaver
 {
     private readonly string _filePath;

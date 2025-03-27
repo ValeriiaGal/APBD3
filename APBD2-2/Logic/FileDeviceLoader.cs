@@ -1,14 +1,16 @@
 ﻿namespace APBD2;
-
+/// <summary>
+/// Loads devices from a file
+/// </summary>
 public class FileDeviceLoader : IDeviceLoader
 {
     private readonly string _filePath;
-    private readonly IDeviceFactory _deviceFactory;
+    private readonly IDeviceMaker _deviceMaker;
 
-    public FileDeviceLoader(string filePath, IDeviceFactory deviceFactory)
+    public FileDeviceLoader(string filePath, IDeviceMaker deviceFactory)
     {
         _filePath = filePath;
-        _deviceFactory = deviceFactory;
+        _deviceMaker = deviceFactory;
     }
 
     public List<object> LoadDevices()
@@ -19,7 +21,7 @@ public class FileDeviceLoader : IDeviceLoader
         var devices = new List<object>();
         foreach (var line in File.ReadAllLines(_filePath))
         {
-            var device = _deviceFactory.CreateDevice(line);
+            var device = _deviceMaker.CreateDevice(line);
             if (device != null)
                 devices.Add(device);
         }

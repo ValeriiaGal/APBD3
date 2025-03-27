@@ -1,7 +1,7 @@
 ﻿namespace APBD2;
 
 /// <summary>
-/// Loads devices from a source.
+/// Loads devices from a file
 /// </summary>
 public interface IDeviceLoader
 {
