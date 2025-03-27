@@ -5529,11 +5529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\Lera\\RiderProjects\\APBD3\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj",
+      "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD3\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\Lera\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\obj\\",
+      "outputPath": "C:\\Users\\Lera\\RiderProjects\\APBD3\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lera\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5548,8 +5548,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj": {
-              "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj"
+            "C:\\Users\\Lera\\RiderProjects\\APBD3\\APBD2-2\\APBD2-2.csproj": {
+              "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD3\\APBD2-2\\APBD2-2.csproj"
             }
           }
         }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj",
+      "projectUniqueName": "C:\\Users\\Lera\\RiderProjects\\APBD3\\APBD2-2\\APBD2-2.csproj",
       "projectName": "APBD2-2",
-      "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj",
+      "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD3\\APBD2-2\\APBD2-2.csproj",
       "packagesPath": "C:\\Users\\Lera\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\obj\\",
+      "outputPath": "C:\\Users\\Lera\\RiderProjects\\APBD3\\APBD2-2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lera\\AppData\\Roaming\\NuGet\\NuGet.Config"
