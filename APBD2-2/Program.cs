@@ -7,7 +7,11 @@ class Program
     {
         try
         {
-            DeviceManager manager = new DeviceManager("info/input.txt");
+            IDeviceFactory factory = new DeviceFactory();
+            IDeviceLoader loader = new FileDeviceLoader("info/input.txt", factory);
+            IDeviceSaver saver = new FileDeviceSaver("info/input.txt");
+
+            DeviceManager manager = new DeviceManager(loader);
 
             Console.WriteLine("All devices after loading from file:");
             manager.ShowDevices();
@@ -32,7 +36,6 @@ class Program
             Console.WriteLine("\nEditing device data");
             manager.EditDeviceData(2, "IsTurnedOn", false);  
 
-
             Console.WriteLine("\nAll devices after modifications:");
             manager.ShowDevices();
 
@@ -43,7 +46,7 @@ class Program
             manager.TurnOnDevice(5); 
 
             Console.WriteLine("\nSaving devices");
-            manager.SaveToFile("info/input.txt"); 
+            manager.SaveToFile(saver); 
 
             Console.WriteLine("\nFinal list of devices:");
             manager.ShowDevices();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lera\\Desktop\\APBD2-2\\Test\\Test.csproj": {}
+    "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lera\\Desktop\\APBD2-2\\APBD2-2\\APBD2-2.csproj": {
+    "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lera\\Desktop\\APBD2-2\\APBD2-2\\APBD2-2.csproj",
+        "projectUniqueName": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj",
         "projectName": "APBD2-2",
-        "projectPath": "C:\\Users\\Lera\\Desktop\\APBD2-2\\APBD2-2\\APBD2-2.csproj",
+        "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj",
         "packagesPath": "C:\\Users\\Lera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lera\\Desktop\\APBD2-2\\APBD2-2\\obj\\",
+        "outputPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lera\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\Lera\\Desktop\\APBD2-2\\Test\\Test.csproj": {
+    "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lera\\Desktop\\APBD2-2\\Test\\Test.csproj",
+        "projectUniqueName": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "C:\\Users\\Lera\\Desktop\\APBD2-2\\Test\\Test.csproj",
+        "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj",
         "packagesPath": "C:\\Users\\Lera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lera\\Desktop\\APBD2-2\\Test\\obj\\",
+        "outputPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lera\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -84,8 +84,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Lera\\Desktop\\APBD2-2\\APBD2-2\\APBD2-2.csproj": {
-                "projectPath": "C:\\Users\\Lera\\Desktop\\APBD2-2\\APBD2-2\\APBD2-2.csproj"
+              "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj": {
+                "projectPath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\APBD2-2\\APBD2-2.csproj"
               }
             }
           }

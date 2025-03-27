@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0O0Wd8Qrjz4=",
+  "dgSpecHash": "j7uCS+ayoMo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lera\\Desktop\\APBD2-2\\Test\\Test.csproj",
+  "projectFilePath": "C:\\Users\\Lera\\RiderProjects\\APBD2-3\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lera\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Lera\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
